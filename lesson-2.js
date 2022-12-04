@@ -43,6 +43,22 @@ function myBool() {
     const result4 = (a != b) && (b != c) && (c == d);
     console.log(result4); //true
 
+
+    //==== Additional task ====//
+    const x = null;
+    const y = undefined;
+    const result5 = (x == y);
+    const result6 = (x === y);
+    console.log(result5, result6);
+
+    //==== Additional task ====//
+    const p = null;
+    const m = 1;
+    const k = 2;
+    const result7 = (p ?? m); // 1
+    const result8 = (m ?? p); // 1
+    const result9 = (k ?? m); // 2
+    console.log(result7, result8, result9);
 }
 
 myString();
