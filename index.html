@@ -1,0 +1,152 @@
+<html>
+
+<body>
+  <p>Hello JS</p>
+  <script>
+    console.log(0x16BF); // 363 (шестнадцатеричная запись)
+    console.log(0b101101011); // 363 (двоичная запись)
+    console.log(0o553);
+
+    let num = 363;
+    console.log(num.toString(2)); // ’363’ (десятичная запись)
+    console.log(num.toString(16)); // ‘16b’
+
+    console.log('==========================');
+
+    console.log(typeof (0.1 + 0.2), (0.1 + 0.2)); // 0.30000000000000004
+    console.log(typeof (0.1 + 0.2).toFixed(1), (0.1 + 0.2).toFixed(1)); // 0.3
+    console.log(typeof +(0.1 + 0.2).toFixed(1), +(0.1 + 0.2).toFixed(1)); // 0.3
+
+    console.log('==========================');
+
+    console.log('isNaN demo = ', isNaN('2132131')); // Will be false
+    console.log('isNaN demo = ', isNaN(10)); // Will be false
+    console.log('isNaN demo = ', isNaN(undefined)); // Will be Nan == true
+
+    // Transfer number to string
+    const hexNum = 10;
+    console.log((1023).toString(16)); // HEX val
+    console.log(hexNum.toString(16)); // HEX val
+    console.log(hexNum.toString());   // Decimal va; 
+
+    // parseInt demo
+    console.log(parseInt('100 dsfsdf')); // Will be parsed value int
+    console.log(parseInt('100.2 dsfsdf')); // Will be parsed value int 
+    console.log(parseInt('sadsad 100 dsfsdf')); // Will be NaN
+
+    // parseFloat demo
+    console.log(parseFloat('100.32 dsfsdf')); // Will be parsed value
+    console.log(parseFloat('sadsad 100 dsfsdf'));  // Will be NaN
+
+    console.log('==========================');
+
+    //console.log('it is 'fantastic''); // SyntaxError
+    console.log('it is \'fantastic\''); // it is 'fantastic'
+    console.log("it is 'fantastic'"); // it is 'fantastic' 
+
+    // -----------------------------VV  /n demo
+    console.log('fadsfdfdsafdasfdsfd\nsfdsfdsfdsfdsfdsfdsfdsfdsfsdafdsafsdfdsdsfdasf  \\');
+    console.log('\u0102')
+
+    console.log('==========================');
+
+    const name = "Luke";
+    console.log("I'm your father, " + name + "!"); // I’m your father, Luke!
+    console.log(`I'm your father, ${name}!`); // I’m your father, Luke!
+
+    console.log('==========================');
+
+    const someStrig = 'Hello world';
+    console.log('dsafsdfdsfdsfsdafdsfdsf'.length);
+    console.log(someStrig.length);
+
+    console.log('==========================');
+
+    console.log(someStrig.toUpperCase());
+    console.log(someStrig.toLowerCase());
+
+    console.log(someStrig.indexOf('llo', 0));
+
+    console.log('==========================');
+
+    console.log(1 == true); // true
+    console.log(0 == false); // true
+    console.log("false" == false); // false
+    console.log(Boolean("false") == false); // true
+
+    console.log('==========================');
+
+    let value = 10;
+
+    let increment = ++value; // 11
+    let decrement = value--;
+
+    console.log(increment, decrement, value);
+
+    console.log('==========================');
+
+    value += 10; // ==== value = value + 10; 
+
+    console.log('value =', value);
+
+    console.log('========== Comparations ================');
+
+    const numC = 10;
+    console.log(numC > 6); // true
+    console.log(numC < 9); // false
+    console.log(numC >= 10); // true
+    console.log(numC <= 3); // false
+    console.log(numC == 10); // true
+    console.log(numC !== 11); // true
+
+    const result = numC != 20;
+    console.log(result); // true
+
+    console.log('==========================');
+
+    console.log(0 == '0000');    // true
+    console.log(1 == true);      // true
+    console.log(0 == false);     // true
+    console.log(undefined == 0); // false
+    console.log(null == 0); // false
+
+    console.log(0 === '0000');   // false
+    console.log(1 === true);     // false
+    console.log(true === true);  // true
+    console.log(false !== true); // true
+
+    console.log('==========================');
+
+    const x = 10;
+    const y = 20;
+    const z = 15;
+
+    //------------true ---  true ==== true
+    console.log((z > x) && (z < y)); // true
+
+    //------------true -----felse === true
+    console.log((z > x) || (z > y)); // true
+
+    console.log(!(10 === 10)); // false
+
+    console.log(false || true || true);
+    console.log(false && true && true);
+
+    console.log(!true); // false
+    console.log(!!'summer'); // true
+
+    console.log('========================');
+
+    let user; // ==== undefined
+    console.log(user ?? 'Anonymous'); // ‘Anonymous’
+
+    user = 'Name';
+    console.log(user ?? 'Anonymous'); // ‘Anonymous’
+
+    let res = user ?? 'Anonymous';
+    console.log(res);
+
+  </script>
+</body>
+
+</html>
