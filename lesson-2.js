@@ -61,5 +61,3 @@ function myBool() {
     console.log(result7, result8, result9);
 }
 
-myString();
-myBool();
