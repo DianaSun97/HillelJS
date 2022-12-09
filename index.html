@@ -3,148 +3,222 @@
 <body>
   <p>Hello JS</p>
   <script>
-    console.log(0x16BF); // 363 (шестнадцатеричная запись)
-    console.log(0b101101011); // 363 (двоичная запись)
-    console.log(0o553);
+    // ================ Оператор if ======================
+    console.log('cat' === 'cat', 'cat' == 'cat', 'dog' == 'cat', 'dog' === 'cat');
 
-    let num = 363;
-    console.log(num.toString(2)); // ’363’ (десятичная запись)
-    console.log(num.toString(16)); // ‘16b’
+    const month = 'September';
 
-    console.log('==========================');
+    if (month === 'September') {
+      console.log('Its time to learn!');
+    } else {
+      console.log('Continue chilling');
+    }
 
-    console.log(typeof (0.1 + 0.2), (0.1 + 0.2)); // 0.30000000000000004
-    console.log(typeof (0.1 + 0.2).toFixed(1), (0.1 + 0.2).toFixed(1)); // 0.3
-    console.log(typeof +(0.1 + 0.2).toFixed(1), +(0.1 + 0.2).toFixed(1)); // 0.3
+    if (undefined) {
+      console.log('');
+    } else {
+      console.log('Its undefined');
+    }
 
-    console.log('==========================');
+    if (null) {
+      console.log('');
+    } else {
+      console.log('Its null');
+    }
 
-    console.log('isNaN demo = ', isNaN('2132131')); // Will be false
-    console.log('isNaN demo = ', isNaN(10)); // Will be false
-    console.log('isNaN demo = ', isNaN(undefined)); // Will be Nan == true
+    if (0) {
+      console.log('');
+    } else {
+      console.log('Its 0');
+    }
 
-    // Transfer number to string
-    const hexNum = 10;
-    console.log((1023).toString(16)); // HEX val
-    console.log(hexNum.toString(16)); // HEX val
-    console.log(hexNum.toString());   // Decimal va; 
+    if (false) {
+      console.log('');
+    } else {
+      console.log('Its false');
+    }
 
-    // parseInt demo
-    console.log(parseInt('100 dsfsdf')); // Will be parsed value int
-    console.log(parseInt('100.2 dsfsdf')); // Will be parsed value int 
-    console.log(parseInt('sadsad 100 dsfsdf')); // Will be NaN
+    // =============================
 
-    // parseFloat demo
-    console.log(parseFloat('100.32 dsfsdf')); // Will be parsed value
-    console.log(parseFloat('sadsad 100 dsfsdf'));  // Will be NaN
+    const sumNumber = 10;
 
-    console.log('==========================');
+    if (sumNumber === 11) {
+      console.log('its not 11');
+    } else if (sumNumber === 10) {
+      console.log('its 10!');
+    } else {
+      console.log('Its not 11 or 10');
+    }
 
-    //console.log('it is 'fantastic''); // SyntaxError
-    console.log('it is \'fantastic\''); // it is 'fantastic'
-    console.log("it is 'fantastic'"); // it is 'fantastic' 
+    // =====
+    if (sumNumber === 10) console.log('its 10 without {}');
 
-    // -----------------------------VV  /n demo
-    console.log('fadsfdfdsafdasfdsfd\nsfdsfdsfdsfdsfdsfdsfdsfdsfsdafdsafsdfdsdsfdasf  \\');
-    console.log('\u0102')
+    // same as 
 
-    console.log('==========================');
+    if (sumNumber === 10) {
+      console.log('its 10 without {}');
+    }
 
-    const name = "Luke";
-    console.log("I'm your father, " + name + "!"); // I’m your father, Luke!
-    console.log(`I'm your father, ${name}!`); // I’m your father, Luke!
+    // ========================== Тернарный оператор ================================
 
-    console.log('==========================');
+    let age = +prompt('Сколько вам лет?');
 
-    const someStrig = 'Hello world';
-    console.log('dsafsdfdsfdsfsdafdsfdsf'.length);
-    console.log(someStrig.length);
+    let isAllow = (age >= 18) && (age < 65) && true ? true : false;
 
-    console.log('==========================');
+    //     v============if true===================V
+    const isAllowText = age >= 18 ? 'Cool, nice to see you' : 'Come back latter';
+    //     ^============if false =================================^
 
-    console.log(someStrig.toUpperCase());
-    console.log(someStrig.toLowerCase());
+    console.log(isAllow, isAllowText);
 
-    console.log(someStrig.indexOf('llo', 0));
+    // Это эквевалент 
 
-    console.log('==========================');
+    if (age > 18) {
+      isAllow = true;
+    } else {
+      isAllow = false;
+    }
 
-    console.log(1 == true); // true
-    console.log(0 == false); // true
-    console.log("false" == false); // false
-    console.log(Boolean("false") == false); // true
+    // ============================= Оператор switch =============================
 
-    console.log('==========================');
+    let colour = 'Yellow';
 
-    let value = 10;
+    switch (colour) {
+      case 'red':
+        console.log('Stay here!');
+        break;
+      case 'Yellow':
+        console.log('Wait for it');
+        break;
+      default:  // Можно и без него
+        console.log('Now, you go');
+        break;
+    }
 
-    let increment = ++value; // 11
-    let decrement = value--;
+    let newNumber = +prompt('Enter some number');
 
-    console.log(increment, decrement, value);
+    switch (newNumber) {
+      case 42:
+        console.log('Its an answer!');
+        break;
+      case 0:
+        console.log('Its a zero');
+        break;
+      case 10:
+        // any action you like
+        console.log(newNumber + 10);
+        console.log('Its a ten');
+        break;
+      default:  // Можно и без него
+        console.log('Some unexpected number');
+        break;
+    }
 
-    console.log('==========================');
+    // ================ Цикл While ========================
 
-    value += 10; // ==== value = value + 10; 
+    console.log('================ Цикл While ========================');
 
-    console.log('value =', value);
+    let mark = 0;
 
-    console.log('========== Comparations ================');
+    while (mark < 5) {
+      console.log(`Mark: ${mark}`);
+      mark++;
+    }
+    console.log(`${mark} mark === 5`);
 
-    const numC = 10;
-    console.log(numC > 6); // true
-    console.log(numC < 9); // false
-    console.log(numC >= 10); // true
-    console.log(numC <= 3); // false
-    console.log(numC == 10); // true
-    console.log(numC !== 11); // true
+    while (mark < 5) {
+      console.log(`Mark: ${mark}`);
+      mark++;
+    }
+    console.log(`${mark} mark === 5`);
 
-    const result = numC != 20;
-    console.log(result); // true
+    while (false) {
+      console.log('You will never get here!');
+    }
 
-    console.log('==========================');
+    console.log('================ Цикл do while ========================');
 
-    console.log(0 == '0000');    // true
-    console.log(1 == true);      // true
-    console.log(0 == false);     // true
-    console.log(undefined == 0); // false
-    console.log(null == 0); // false
+    mark = 0;
 
-    console.log(0 === '0000');   // false
-    console.log(1 === true);     // false
-    console.log(true === true);  // true
-    console.log(false !== true); // true
+    do {
+      console.log(`Mark: ${mark}`);
+      mark++;
+    } while (mark < 5);
+    console.log(`${mark} mark === 5`);
 
-    console.log('==========================');
+    do {
+      console.log(`Mark: ${mark}`);
+      mark++;
+    } while (mark < 5);
+    console.log(`${mark} mark === 6`);
 
-    const x = 10;
-    const y = 20;
-    const z = 15;
+    do {
+      console.log('You will be here only one time');
+    } while (false);
 
-    //------------true ---  true ==== true
-    console.log((z > x) && (z < y)); // true
+    // ================ Цикл For ========================
 
-    //------------true -----felse === true
-    console.log((z > x) || (z > y)); // true
+    console.log('======== for loop ======');
+    
+    for (let i = 0; i < 5; i++) {
+      console.log(`Mark: ${i}`);
+    }
 
-    console.log(!(10 === 10)); // false
+    for (let i = 0; i < 5;) {
+      console.log(`Mark: ${i++}`);
+    }
 
-    console.log(false || true || true);
-    console.log(false && true && true);
+    let i = 0;
+    for (; i < 5; i++) {
+      console.log(`Mark: ${i}`);
+    }
 
-    console.log(!true); // false
-    console.log(!!'summer'); // true
+    for (let reverse = 10; reverse > 0; reverse -= 0.5) {
+      console.log(`Reverce loop ${reverse}`);
 
-    console.log('========================');
+      if (reverse < 4) break; // You will quit this loop
+    }
 
-    let user; // ==== undefined
-    console.log(user ?? 'Anonymous'); // ‘Anonymous’
+    console.log('For exclude some value');
 
-    user = 'Name';
-    console.log(user ?? 'Anonymous'); // ‘Anonymous’
+    for (let exclude = 0; exclude < 5; exclude++) {
+      if ((exclude !== 3) || (exclude !== 1)) {
+        console.log(`Iterator !== 3 || !== 1: ${exclude}`);
+      } else {
+        console.log('Excluded');
+      }
+    }
 
-    let res = user ?? 'Anonymous';
-    console.log(res);
+    for (let exclude = 0; exclude < 5; exclude++) {
+      if (exclude === 3) {
+        console.log(`Iterator === 3: ${exclude}`);
+      }
+    }
+
+  // ================ Date ========================
+
+  console.log('============ Date ============');
+
+  let date = new Date();
+
+  console.log(date);
+  console.log(`date = ${date.getDate()}`);
+  console.log(`year = ${date.getUTCFullYear()}`);
+  console.log(`string = ${date.toDateString()}`);
+
+  // ================ Math ========================
+
+  console.log(`Pi = ${Math.PI}`);
+  console.log(`Pow x**3 = ${Math.pow(2, 3)}`);
+  console.log(`Rand = ${Math.random()}`);
+
+  let rand = 0;
+  while(rand < 90 ) {
+    rand = Math.floor(Math.random() * 100);
+    console.log(`Rand number = ${rand}`);
+  }
+
+  console.log(Math.max(10, 20));   //  20
 
   </script>
 </body>
