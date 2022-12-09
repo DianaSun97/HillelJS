@@ -1,8 +1,10 @@
-let name = +prompt('Your name?');
+let name = 'Diana';//+prompt('Your name?');
 
-for (var i=0; i<2; i++){
-    console.log(i+"Happy birthday to you")
-    if (name === 2) {
-        console.log(`Happy birthday, dear ${name}`);}
-    console.log("Happy birthday to you")
+for (let i=0; i<4; i++){
+    if (i === 2)  {
+        console.log(i+`: Happy birthday, dear ${name}`);
+    } else {
+        console.log(i+"Happy birthday to you");
+    }
 }
+
