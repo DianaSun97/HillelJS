@@ -1,0 +1,114 @@
+<html>
+
+<body>
+  <p>Hello JS</p>
+  <script>
+    // ============ Debug =================
+    /*    for (let i = 0; i < 5; i++ ) {
+          if (i === 2) {
+            console.log('Some text');
+          } else {
+            console.log('Some other text');
+          }
+          console.log(`Debuging =====> ${i}`);
+          debugger;
+        } */
+
+    let obj = new Object();
+
+    const person = {
+      firstName: 'John',
+      'lastName': 'Smith',
+      age: 22,
+      job: {
+        position: 'Developer',
+        exp: 5,
+      },
+      education: undefined
+    };
+
+    console.log(person.firstName, person.job.position, person.lastName, person.job);
+    console.log(person['firstName'], person.firstName);
+
+    console.log(`try to access to undefined key = ${person['dummy']}, check if key exists = ${'dummy' in person}`);
+
+    console.log('Keys ===>', Object.keys(person));
+
+    const myKey = 'exp';
+    if (('age' in person) && (myKey in person.job)) {
+      console.log(person.age, person.job.position);
+    }
+
+    console.log(person.education?.univercity); // Проверка на существование поля в объекте
+
+    if (person.education?.univercity) {
+      console.log(person.education?.univercity);
+    }
+
+    person.education = { univercity: 'KTURE' }; // изменяем объект
+
+    if (person.education?.univercity) {
+      console.log(person.education?.univercity);
+    }
+
+    person['children'] = ['Name']; // Добавляем ключ значение
+    person.isMaried = true;
+
+    console.log(person['children'], person.isMaried);
+
+    delete person['children']; // Удаление значения
+    delete person.isMaried; 2
+
+    // ============= For пербор объекта ==================
+
+    for (let key in person) {
+      console.log(`key = ${key}, value = ${person[key]}`);
+    }
+
+    // ============ Копирование объектов =================
+
+    const personNew = person;
+
+    console.log(personNew.age);
+    console.log(person.age = 44);
+    console.log(personNew.age);
+
+    // const personCopy = Object.assign({}, person); // Это уже будет копия
+    const personCopy = { ...person };
+
+    person.lastName = 'Carpenter';
+    personCopy.lastName = 'Connor';
+    console.log(person.lastName, personCopy.lastName);
+
+    // ======================= JSON =======================
+
+    console.log(JSON.stringify(person)); // Сериализтрованный объект в строку
+    console.log(JSON.parse('{"firstName": "John", "last name": "Doe", "age": 20}'));
+
+    // Simple deep copy
+
+    const deepCopy = JSON.parse(JSON.stringify(person));
+    console.log(deepCopy);
+
+    // ======================= Array =======================
+
+    // let array = new Array('one', 'two');
+    let array = ['one', 'two', 'three', 'four', 'five'];
+
+    console.log(`Array length = ${array.length}`, array);
+    console.log(array[3]);
+
+    let food = ['potato', 'tomato', 'banana'];
+
+    for (let i = 0; i < food.length; i++) {
+      console.log(food[i]);
+    }
+
+    for (let value of food) {
+      console.log(value);
+    }
+
+  </script>
+</body>
+
+</html>
