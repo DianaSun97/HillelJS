@@ -30,7 +30,7 @@ console.log ("Basic;",arr);
 // console.log (getDeleteRange(arr));
 
 const result = arr.filter(value => value%3===0);
-console.log (result);
+console.log ("Your result", result);
 
 //==== Task 3 ====//
 let found = arr.find(n => n > 7);
@@ -38,7 +38,7 @@ let found = arr.find(n => n > 7);
     console.log("no found")
 }
  else {
-     console.log( "Your found", found)
+     console.log( "Your res", found)
  }
 
 //==== Task 4 ====//
@@ -67,3 +67,17 @@ const lastArr = copyArr.pop();
 console.log(lastArr );
 console.log("Last and First:" , copyArr);
 
+
+const arrayOne = ['dog', 'cat', 'bird', 'rabbit', 'horse'];
+
+const arrayTwo = ['apple', 'car', 'cat', 'ball', 'horse'];
+
+if (arrayOne.includes('cat')) {
+    console.log('We have a \'cat\' in array');
+}
+
+if (arrayTwo.includes('car')) {
+    console.log('We have a \'car\' in array');
+} else {
+    console.log('No \'car\' in array');
+}
