@@ -1,0 +1,191 @@
+<html>
+
+<body>
+  <p>Hello JS</p>
+  <script>
+
+    function makeDecorator(greating) {
+      return function (name) {
+        console.log(`${greating} ${name}`)
+      }
+    }
+
+    const makeMeDeco = makeDecorator('Hello my friend');
+    // makeMeDeco = function (name) { console.log(`Hello my friend ${name}`) } // from 8 line
+
+    makeMeDeco('name');
+
+    // ============= Array ===================================
+
+    const numArray = [3, 5, 6, 7, 8, 9, 0];
+
+    console.log(Number);
+
+    // ==== foreach простой перебор массива
+    numArray.forEach((val, index) => {
+      console.log(`foreach ----> val ${val}, index ${index}`);
+    });
+
+
+    // ==== map вернет модефицированный массив тойже длинны
+    const modifiedArray = numArray.map((val, index) => {
+      console.log(`map ----> val ${val}, index ${index}`);
+      // любые действия над val & index
+      return val * 2;
+    });
+
+    console.log(modifiedArray);
+
+    // ==== fill залив
+
+    numArray.fill(42, 3, 5); // 42 с 3 по 5
+    console.log(numArray);
+
+    modifiedArray.fill(0); // заливаем нулями весь массив
+    console.log(modifiedArray);
+
+    // ==== find pattern in array
+
+    const stringArray = ['hello', 'cat', 'catapillar', 'catalog', 'dog'];
+
+    const findResult = stringArray.find((elemet, index, arr) => {
+      console.log(elemet, index, arr);
+      return elemet.startsWith('cata');
+    });
+
+    if (findResult) { // findResult !== undefined it will be true
+      console.log('We have element starting with `cata`')
+    }
+
+    if (!stringArray.find((elemet, index, arr) => elemet.startsWith('qwerty'))) { // findResult === undefined it will be false
+      console.log('We have no element starting with `qwer`')
+    }
+
+    // Узнаем индекс
+    console.log(`Result - ${findResult}, index of this element ${stringArray.indexOf(findResult)}`);
+
+    // более простая запись
+    console.log(numArray.find(elemet => elemet > 14));
+
+    // ===== includes проверяет элемент на наличие в массиве
+
+    if (stringArray.includes('cat')) {
+      console.log('We have a \'cat\' in array');
+    }
+
+    if (stringArray.includes('car')) {
+      console.log('We have a \'car\' in array');
+    } else {
+      console.log('No \'car\' in array');
+    }
+
+    // ============ Push Pop Shift Unshift
+
+    const sumArray = [1, 2, 3];
+
+    sumArray.push(4);
+    console.log(sumArray); // добавить 4 в конец
+
+    console.log(sumArray.pop()); // извлечет последний элемент и вернет его
+    console.log(sumArray); // добавить 4 в конец
+
+    sumArray.shift();
+    console.log(sumArray);
+
+    sumArray.unshift(5); // unshift(4, 5));
+    console.log(sumArray);
+
+    // ============ Slice Splice
+
+    const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+    console.log(animals.slice(2));
+    // expected output: Array ["camel", "duck", "elephant"]
+    console.log(animals.slice(2, 4));
+    // expected output: Array ["camel", "duck"]
+
+    const months = ['Jan', 'March', 'April', 'June'];
+    months.splice(1, 0, 'Feb');
+    // inserts at index 1
+    console.log(months);
+    // expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+    months.splice(4, 1, 'May', 'Dec');
+    // replaces 1 element at index 4
+    console.log(months);
+    // expected output: Array ["Jan", "Feb", "March", "April", "May"]
+
+    // ========= insert array with spliace and flat
+
+    months.splice(4, 1, ['May', 'val']);
+    // replaces 1 element at index 4
+    console.log(months.flat());
+    // expected output: Array ["Jan", "Feb", "March", "April", "May"]
+
+    // ========= Filter 
+
+    const words = ['spray', 'limit', 'exuberant', 'elite', 'destruction', 'present'];
+
+    const result = words.filter((word, index, arr) => {
+      console.log(word, index, arr);
+      return word.length > 6
+    });
+    console.log(result);
+
+    console.log(words.filter(word => word[0] === 'e'));
+
+    // ======== Reduse
+
+    const array1 = [1, 2, 3, 4, 0];
+
+    // 0 + 1 + 2 + 3 + 4
+    const initialValue = 0;
+
+    const sumWithInitial = array1.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      initialValue
+    );
+
+    console.log(sumWithInitial);
+    // expected output: 10
+
+    // Суммируем все что больше 2х
+    console.log(array1.reduce(
+      (accumulator, currentValue, currentIndex) => {
+        console.log(`Reduce - acc: ${accumulator} cv: ${currentValue} i: ${currentIndex}`);
+        return currentValue > 2 ? currentValue + accumulator : accumulator;
+      }, initialValue),
+    );
+
+    // ==== Sort 
+    const arrayUnsorted = [1, 7, 3, 3, 4, 23];
+
+    arrayUnsorted.sort((a, b) => {
+      return a < b;
+    })
+
+    console.log(arrayUnsorted);
+    console.log(words.sort());
+
+    // console.log('==============================')
+
+    // function bubbleSort(arr) {
+    //   for (var i = 0, endI = arr.length - 1; i < endI; i++) {
+    //     for (var j = 0, endJ = endI - i; j < endJ; j++) {
+    //       if (arr[j] < arr[j + 1]) {
+    //         var swap = arr[j];
+    //         arr[j] = arr[j + 1];
+    //         arr[j + 1] = swap;
+    //       }
+    //       console.log(arr);
+    //     }
+    //   }
+    //   return arr;
+    // }
+
+    // bubbleSort(arrayUnsorted);
+
+  </script>
+</body>
+
+</html>
