@@ -67,17 +67,10 @@ const lastArr = copyArr.pop();
 console.log(lastArr );
 console.log("Last and First:" , copyArr);
 
-
+//==== Task 6 ====//
 const arrayOne = ['dog', 'cat', 'bird', 'rabbit', 'horse'];
 
 const arrayTwo = ['apple', 'car', 'cat', 'ball', 'horse'];
 
-if (arrayOne.includes('cat')) {
-    console.log('We have a \'cat\' in array');
-}
-
-if (arrayTwo.includes('car')) {
-    console.log('We have a \'car\' in array');
-} else {
-    console.log('No \'car\' in array');
-}
+const resultArr = arrayTwo.filter(item => arrayOne.includes(item));
+console.log(resultArr);
