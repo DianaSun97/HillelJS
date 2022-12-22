@@ -65,3 +65,53 @@ function getStringElements(arr) {
 }
 
 console.log(getStringElements(arr))
+
+
+//Task3
+
+//1.
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let sum = sumArray(array);
+
+function sumArray(array) {
+    if (array.length === 0) {
+        return 0;
+    }
+    return array[0] + sumArray(array.slice(1));
+}
+
+console.log(sum); // 55
+
+//2.
+const arr1 = [0, 2, 4, 5, 7, 10, 2, 3, 5, 6, 10, 3];
+function sumElements(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+
+    const [first, ...rest] = arr;
+    if (first === 10) {
+        return first + sumElements(rest);
+    }
+    return sumElements(rest);
+}
+
+console.log(sumElements(arr1)); // 20
+
+//3.
+const arr2 = [0, 2, 4, 5, 7, 10, 2, 3, 5, 6, 10, 3];
+const elementsGreaterThanFive = findElementsGreaterThanFive(arr2);
+function findElementsGreaterThanFive(arr) {
+    let result = [];
+    // Перебираем все элементы массива
+    for (let i = 0; i < arr.length; i++) {
+        // Если текущий элемент больше 5, то добавляем его в результирующий массив
+        if (arr2[i] > 5) {
+            result.push(arr2[i]);
+        }
+    }
+    // Возвращаем результирующий массив
+    return result;
+}
+
+console.log(elementsGreaterThanFive); // [7, 10, 6, 10]
