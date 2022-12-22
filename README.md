@@ -6,3 +6,4 @@ Please use branch for every lesson.
 - [Lesson 4](https://github.com/DianaSun97/HillelJS/tree/lesson-4)
 - [Lesson 5](https://github.com/DianaSun97/HillelJS/tree/lesson-5)
 - [Lesson 6](https://github.com/DianaSun97/HillelJS/tree/lesson-6)
+- [Lesson 7](https://github.com/DianaSun97/HillelJS/tree/lesson-7)
