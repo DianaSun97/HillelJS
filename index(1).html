@@ -1,0 +1,185 @@
+<html>
+
+<body>
+  <p>Hello JS</p>
+  <script>
+    // 'use strict'
+    var globalVar = 'Hello global value';
+
+    console.log(globalVar);
+
+    function someFunc() {
+      var globalVar = 'Incide var'
+      console.log(globalVar);
+    }
+
+    someFunc();
+
+    console.log(globalVar);
+
+    // ======= LET scoped var ======
+    let i = 10;
+
+    for (let i = 0; i < 5; i++) {
+      console.log(i);
+    }
+
+    console.log(i); // will be 10
+
+    // ====== VAR gloabal var ======
+    var j = 10;
+
+    for (var j = 0; j < 5; j++) {
+      console.log(j);
+    }
+
+    console.log(j);  // Will be 5
+
+    // ==========================================================
+
+    function someFunc1() {
+      let i = 40;
+      console.log(i);
+    }
+
+    someFunc1();
+
+    console.log(i);
+
+    // =========================================================
+
+    this.myValue = 'Some string';
+
+    console.log(this, myValue);
+
+    let obj = {
+      a: 2,
+      a: 4
+    }
+
+    console.log(obj.a)
+
+    // function x(a, a) { // will work onley in not strict mode
+    //   console.log(a + a);
+    // }
+
+    // x(1, 2);
+
+    // const person2 = {
+    //   username: 'Pavel',
+    //   age: 28,
+    //   isMarried: true,
+    //   sayHi: function (yourname) {
+    //     console.log(`Hello, ${yourname}! Меня зовут ${this.username}`);
+    //   }
+    // }; 
+
+    // ======================== THIS ========================
+
+    console.log(this.globalVar);
+
+    function thisDemo(a, b) {
+      let c = 10;
+      console.log(`args = ${a + b + c}, this = ${this}`);
+    }
+
+    thisDemo(2, 2);
+
+    const someObject = {
+      username: 'Pavel',
+      age: 28,
+      isMarried: true,
+      children: ['Jon', 'Monica'],
+      job: {
+        title: 'Developer'
+      },
+      sayHi: function (yourname) {
+        console.log(`Hello, ${yourname}! Меня зовут ${this.username}`, this);
+        console.log(this.job.title);
+      },
+      setName: function (newName) {
+        if (newName && typeof newName == 'string') {
+          this.username = newName;
+          return true;
+        }
+
+        return false;
+      },
+      getChildren: function () {
+        return this.children.length ? this.children : 'No children';
+      }
+    };
+
+    someObject.sayHi('Name');
+
+    if (someObject.setName(1)) {
+      console.log('Syccess');
+    } else {
+      console.log('Fail!')
+    }
+
+    console.log(someObject);
+
+    if (someObject.setName('Fios')) {
+      console.log('Syccess');
+    } else {
+      console.log('Fail!')
+    }
+
+    console.log(someObject, `Children: ${someObject.getChildren()}`);
+
+    // ===========================================
+
+    const objectArrowFunction = {
+      a: 10,
+      b: 20,
+      getValue: () => {
+        console.log(this); // outer context, this will be = window
+      },
+      getValueFunction: function () { // own context, this will be = objectArrowFunction
+        console.log(this);
+      },
+    };
+
+    const objThisDemo = {
+      text: 'Some text',
+      demo: function (obj) {
+        console.log(this);
+        obj.getValue();
+        obj.getValueFunction();
+      }
+    };
+
+    objThisDemo.demo(objectArrowFunction);
+
+    // =============================================
+
+    function thisDemoFunction () {
+      console.log(this);
+    }
+
+    thisDemoFunction();
+
+    // ==============================================
+
+    function callDemo (x, y) {
+      console.log(this, x, y)
+    }
+
+    const context = {
+      text: 'My context',
+      count: 10
+    };
+
+    callDemo('some string', 10);
+    callDemo.call(context, 'some string', 10);
+    callDemo.apply(context, ['some string', 10]);
+
+    const newFunction = callDemo.bind(context);
+
+    newFunction('some string', 10);
+
+  </script>
+</body>
+
+</html>
