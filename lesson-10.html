@@ -13,31 +13,31 @@
 
 <div class="wrapper">
     <div class="block__inner">
-        <div id="block__choise" class="block__choise">
+        <div id="blockSelect" class="blockSelect">
             <p>
                 Selected: XXXXXX
             </p>
         </div>
-        <div class="divs" div-name="div1">
-            <div class="div__inner--special divs" div-name="div4">
-                <div class="div1 divs" div-name="div3">
-                    <button class="btn" id="btn1" div-name="btn1">
+        <div div-name="div1" class="div__inner divs">
+            <div div-name="div4" class="divSpecial divs">
+                <div div-name="div3" class="div1 divs">
+                    <button div-name="btn1" onclick="handler(event)" id="btn1" class="btn">
                         type1
                     </button>
                 </div>
-                <div class="div1 divs" div-name="div2">
-                    <button class="btn" id="btn2" div-name="btn2">
+                <div div-name="div2" class="div1 divs">
+                    <button div-name="btn2" onclick="handler(event)" id="btn2" class="btn">
                         type2
                     </button>
                 </div>
             </div>
             <div class="input-buttons">
-                <p class="div__text">
+                <p class="divText">
                     sometext
                 </p>
                 <div class="input-buttons__inner">
-                    <input class="input" type="text">
-                    <button class="input__btn">
+                    <input class="input" onkeydown="keyPress(event)" type="text">
+                    <button class="inputButton">
                         OK
                     </button>
                 </div>
@@ -47,7 +47,11 @@
     </div>
 
 </div>
+
+
+
 <script src="lesson-10.js"></script>
+
 
 </body>
 

@@ -1,39 +1,59 @@
-const elems = document.getElementsByClassName('divs');
-const selected = document.getElementById('block__choise');
-const body = document.querySelector('body');
-const input = document.querySelector('.input');
-const inputBtn = document.querySelector('.input__btn');
 
-for (let key of elems) {
+let elem = document.getElementsByClassName('divs') 
+let selected = document.getElementById('blockSelect'); 
+let body = document.querySelector('body');
+let input = document.querySelector('.input');
+let inputButton = document.querySelector('.inputButton');
+
+
+
+for (let key of elem) {
     key.addEventListener('click', (e) => {
         e.stopPropagation();
-        const res = e.target.getAttribute("div-name");
+        // console.log(key, e);
+        const res = key.getAttribute("div-name");
 
-        if (res === null) {
+        if (res === null) { // если пустой
             selected.textContent = `Selected: XXXXXX`;
-        } else {
+        } else { // иначе
             selected.textContent = `Selected: ${res}`;
         }
-    });
+    })
+}
+
+const handler = (event) => { 
+    let handler = event.target.getAttribute("div-name");
+    selected.textContent = `Selected:${handler}`;
 }
 
 body.addEventListener('click', () => {
-    selected.textContent = `Selected: XXXXXX`;
-});
+    selected.textContent = `Selected: `;
+})
 
-inputBtn.addEventListener('click', () => {
+
+const keyPress = (event) => {
+    if (event.key === event.key.toUpperCase()) {
+        event.preventDefault();
+    }
+}
+
+inputButton.disabled = true; 
+
+inputButton.addEventListener('click', () => {
     let resInput = input.value;
     alert(resInput);
-});
+})
 
-input.addEventListener('input' , () => {
-    inputBtn.disabled = !input.value;
-});
+input.addEventListener('keyup' , () => {
+    if (input.value !== '') {
+        inputButton.disabled = false;
+    } else {
+        inputButton.disabled = true;
+    }
+})
 
-
-console.log(input);
-console.log(inputBtn);
-console.log(body);
+console.log(input)
+console.log(inputButton);
+console.log(body)
 console.log(selected);
-console.log(elems);
-
+console.log(elem); 
