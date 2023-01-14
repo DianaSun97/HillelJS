@@ -13,17 +13,18 @@ for (let key of elem) {
         // console.log(key, e);
         const res = key.getAttribute("div-name");
 
-        if (res === null) { // если пустой
+        if (res === null) {
             selected.textContent = `Selected: XXXXXX`;
-        } else { // иначе
+        } else {
             selected.textContent = `Selected: ${res}`;
         }
     })
 }
 
-const handler = (event) => { 
-    let handler = event.target.getAttribute("div-name");
-    selected.textContent = `Selected:${handler}`;
+const handler = (e) => {
+    e.stopPropagation();
+    let res = e.target.getAttribute("div-name");
+    selected.textContent = `Selected: ${res}`;
 }
 
 body.addEventListener('click', () => {
