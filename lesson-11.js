@@ -8,9 +8,9 @@ let divs = document.createElement("div");
 let back = document.querySelector('.back');
 divs.classList.add('selectedBlock');
 
-bodySpace[0].addEventListener('click', () => {
-    selected.textContent = '';
-});
+// bodySpace[0].addEventListener('click', () => {
+//     selected.textContent = '';
+// });
 
 
 function handleName(event) {
