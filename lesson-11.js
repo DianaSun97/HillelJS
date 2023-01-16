@@ -79,6 +79,7 @@ back.addEventListener('click', (e) => {
     document.querySelectorAll('.divItem').forEach(value => {
         value.remove()
     })
+
     personagesList(response.results);
 });
 
