@@ -2,7 +2,7 @@
 //Task 1
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-        console.log("Hello");
+        console.log("Tere!");
         resolve();
     }, 3000);
 });
