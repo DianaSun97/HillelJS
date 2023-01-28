@@ -69,9 +69,6 @@ function personagesList(data) {
     });
 }
 
-const response = JSON.parse(Data);
-personagesList(response.results);
-
 //back
 back.addEventListener('click', (e) => {
     e.stopPropagation()
@@ -82,4 +79,51 @@ back.addEventListener('click', (e) => {
 
     personagesList(response.results);
 });
+
+
+//pagination
+const counter = document.getElementById("counter");
+const leftButton = document.getElementById("left-button");
+const rightButton = document.getElementById("right-button");
+
+let currentPage = 1;
+let characters = [];
+
+const updateCharactersList = (page) => {
+    fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+        .then(res => res.json())
+        .then(data => {
+            characters = data.results;
+
+            personagesList(characters);
+            counter.innerHTML = currentPage;
+        })
+        .catch(err => console.error(err));
+};
+
+updateCharactersList(currentPage);
+
+leftButton.addEventListener("click", (e) => {
+    if (currentPage > 1) {
+        currentPage--;
+        document.querySelectorAll('.divItem').forEach(value => {
+            value.remove()
+        })
+        updateCharactersList(currentPage);
+    }
+    e.stopPropagation()
+});
+
+rightButton.addEventListener("click", (e) => {
+    currentPage++;
+    document.querySelectorAll('.divItem').forEach(value => {
+        value.remove()
+    })
+    updateCharactersList(currentPage);
+    e.stopPropagation()
+
+});
+
+
+
 
