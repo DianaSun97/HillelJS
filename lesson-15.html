@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+</head>
+<body>
+<header>
+    <title>Rick & Morty Character Search</title>
+</header>
+<h1  class="title">Rick & Morty Character Search</h1>
+<form>
+    <div class="container">
+    <header class="search-container">
+    <label for="name">Name:</label>
+    <input type="text" class="search-inp" placeholder="Search Character" id="name" name="name">
+    <button type="button" class="search-btn" onclick="search()">Search</button>
+    </header>
+        <div class="filter">
+        <label for="status">Status:</label>
+        <input type="radio" id="alive" name="status" checked value="alive">
+        <label for="alive">Alive</label>
+        <input type="radio" id="dead" name="status" value="dead">
+        <label for="dead">Dead</label>
+        <input type="radio" id="unknown" name="status" value="unknown">
+        <label for="unknown">Unknown</label>
+        </div>
+    </div>
+    <br><br>
+
+
+</form>
+<br><br>
+<div class="grid">
+<div class="results" id="results"></div>
+</div>
+
+<!-- Modal here -->
+<div id="modal">
+    <div id="modal-content">
+        <img id="modal-image" src="">
+        <div id="modal-name"></div>
+        <div id="modal-close">Close</div>
+    </div>
+</div>
+
+<script src="lesson-15.js"></script>
+</body>
+</html>
