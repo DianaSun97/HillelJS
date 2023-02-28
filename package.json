@@ -1,0 +1,28 @@
+{
+  "name": "hilleljs",
+  "version": "1.0.0",
+  "description": "Please use branch for every lesson. - [Lesson 1](https://github.com/DianaSun97/HillelJS/tree/lesson-1) - [Lesson 2](https://github.com/DianaSun97/HillelJS/tree/lesson-2) - [Lesson 3](https://github.com/DianaSun97/HillelJS/tree/lesson-3) - [Lesson 4](https://github.com/DianaSun97/HillelJS/tree/lesson-4)",
+  "main": "src/lesson-18.html",
+  "scripts": {
+    "start":"webpack serve",
+    "build-dev": "webpack",
+    "build-prod": "webpack --node-env=production",
+    "clear": "rd /s /d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaSun97/HillelJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DianaSun97/HillelJS/issues"
+  },
+  "homepage": "https://github.com/DianaSun97/HillelJS#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
