@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { Child } from './Child';
-import { Props } from './Props';
-import { Counter } from './Hook';
-class App extends Component {
-  render() {
+import './App.css';
+import { MyClock, CheckClock } from './clock';
+
+function App() {
     return (
-        <div>
-            <Props greetingText="Hello from Props!" />
-            <Child>Hello from Child!</Child>
-            <Counter></Counter>
+        <div className="App">
+            <header className="App-header">
+                <MyClock
+                    src={''}
+                    name={'Image'}/>
+            </header>
         </div>
     );
-  }
 }
 
 export default App;
