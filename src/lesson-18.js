@@ -1,4 +1,4 @@
-
+import './style.css'
 
 //html
 const bodySpace = document.getElementsByTagName('body');
