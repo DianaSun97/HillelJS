@@ -15,6 +15,10 @@ class Pagination extends Component {
         for (let i = 1; i <= heroList?.info; i++) {
             pageNumbers.push(i);
         }
+        //with numbers
+        // for (let i = 1; i <= heroList?.info.pages && i <= 5; i++) {
+        //     pageNumbers.push(i);
+        // }
 
         this.setState({ pageNumbers });
     }
