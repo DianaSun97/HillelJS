@@ -1,4 +1,4 @@
-import '../css/toggler.css';
+import '../style/toggler.css';
 
 import { useContext } from "react";
 import { ThemeContext } from "../providers/ThemeContext";
