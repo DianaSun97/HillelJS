@@ -1,19 +1,7 @@
-import './style/App.css';
+import { CardsRickyMorty } from './components/Lists'
 
-import HomePage from './components/HomePage';
-import ThemeProvider from './providers/Theme';
-import HttpHerosProvider from './providers/Provider';
-
-function App() {
-  return (
-    <div className="App">
-      <ThemeProvider>
-        <HttpHerosProvider>
-            <HomePage />
-        </HttpHerosProvider>
-      </ThemeProvider>
-    </div>
-  );
+const App = () => {
+    return <CardsRickyMorty></CardsRickyMorty>
 }
 
-export default App;
+export default App

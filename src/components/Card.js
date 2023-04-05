@@ -1,9 +1,10 @@
 
-const Card = ({children}) => (
-    <div className="Hero-Card">
-        {children}
-    </div>
-);
-
-
-export default Card ;
+export const Card = props => {
+    return (
+        <div className='card'>
+            <p>{props.id}</p>
+            <p>{props.name}</p>
+            <p>{props.status}</p>
+        </div>
+    )
+}
