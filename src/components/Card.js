@@ -2,8 +2,8 @@
 export const Card = props => {
     return (
         <div className='card'>
-            <p>{props.id}</p>
-            <p>{props.name}</p>
+            <p>Name {props.name}</p>
+            <p>ID {props.id}</p>
             <p>{props.status}</p>
         </div>
     )

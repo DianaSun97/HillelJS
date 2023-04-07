@@ -7,13 +7,12 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://rickandmortyapi.com/api/'
 
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use(async (config) => {
     config.headers.MyCustomField = 'foobar';
     return config;
-}, function (error) {
-    return Promise.reject(error);
+}, async (error) => {
+    throw error;
 });
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

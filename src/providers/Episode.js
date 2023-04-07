@@ -4,21 +4,21 @@ import axios from 'axios'
 export const useFetchEpisode = url => {
     const [dataEpisode, setData] = useState(null)
     const [loadingEpisode, setLoading] = useState(true)
-    // const [error, setError] = useState(undefined);
 
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 2000)
-        axios
-            .get(url)
-            .then(res => {
-                setData(res.data)
-                // setLoading(false)
-            })
-            .then(error => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(url)
+                setData(response.data)
+            } catch (error) {
                 console.log(error)
-            })
+            } finally {
+                setTimeout(() => {
+                    setLoading(false)
+                }, 1600)
+            }
+        }
+        fetchData()
     }, [url])
 
     return { dataEpisode, loadingEpisode }

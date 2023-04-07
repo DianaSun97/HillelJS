@@ -49,15 +49,7 @@ export const CardsRickyMorty = () => {
     return (
         <div className='card-flex__wrapper'>
             <div className='card-flex__items'>
-                <div className='card-flex'>
-                    {loadingCharacter ? (
-                        <Loader></Loader>
-                    ) : (
-                        dataCharacter.results
-                            .slice(0, 9)
-                            .map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
-                    )}
-                </div>
+                <h2>Characters</h2>
                 {!loadingCharacter && (
                     <div className='card-flex__btn'>
                         <button onClick={() => prevPageCharacter()}>Prev</button>
@@ -69,17 +61,19 @@ export const CardsRickyMorty = () => {
                         </button>
                     </div>
                 )}
-            </div>
-            <div className='card-flex__items'>
                 <div className='card-flex'>
-                    {loadingEpisode ? (
+                    {loadingCharacter ? (
                         <Loader></Loader>
                     ) : (
-                        dataEpisode.results
+                        dataCharacter.results
                             .slice(0, 9)
                             .map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
                     )}
                 </div>
+            </div>
+
+            <div className='card-flex__items'>
+                <h2>Episodes</h2>
                 {!loadingCharacter && (
                     <div className='card-flex__btn'>
                         <button onClick={() => prevPageEpisode()}>Prev</button>
@@ -91,6 +85,16 @@ export const CardsRickyMorty = () => {
                         </button>
                     </div>
                 )}
+                <div className='card-flex'>
+                    {loadingEpisode ? (
+                        <Loader></Loader>
+                    ) : (
+                        dataEpisode.results
+                            .slice(0, 9)
+                            .map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
+                    )}
+                </div>
+
             </div>
         </div>
     )
