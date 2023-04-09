@@ -7,42 +7,26 @@ import { Loader } from './Loading'
 export const CardsRickyMorty = () => {
     // hooks
     const [pageEpisode, setPageEpisode] = useState(`episode/?page=1`)
-    const [disabledCharacter, setDisabledCharacter] = useState(false)
     const { dataEpisode, loadingEpisode } = useFetchEpisode(`${pageEpisode}`)
-    const [disabledEpisode, setDisabledEpisode] = useState(false)
     const [pageCharacter, setPageCharacter] = useState('character/?page=1')
     const { dataCharacter, loadingCharacter } = useFetchCharacter(
         `${pageCharacter}`
     )
 
-    // Character
+    // Character pagination
     const prevPageCharacter = () => {
-        if (dataCharacter.info.next) {
-            setDisabledCharacter(false)
-        }
         setPageCharacter(dataCharacter.info.prev)
     }
     const nextPageCharacter = () => {
-        if (!dataCharacter.info.next) {
-            setDisabledCharacter(true)
-        }
         setPageCharacter(dataCharacter.info.next)
     }
 
-    // Episode
-    // *************
-
+    // Episode pagination
     const prevPageEpisode = () => {
-        if (dataEpisode.info.next) {
-            setDisabledEpisode(false)
-        }
         setPageEpisode(dataEpisode.info.prev)
     }
 
     const nextPageEpisode = () => {
-        if (!dataEpisode.info.next) {
-            setDisabledEpisode(true)
-        }
         setPageEpisode(dataEpisode.info.next)
     }
 
@@ -52,11 +36,10 @@ export const CardsRickyMorty = () => {
                 <h2>Characters</h2>
                 {!loadingCharacter && (
                     <div className='card-flex__btn'>
-                        <button onClick={() => prevPageCharacter()}>Prev</button>
+                        <button onClick={() => prevPageCharacter()} disabled={ !dataCharacter.info.prev }>Prev</button>
                         <button
-                            disabled={disabledCharacter}
-                            onClick={() => nextPageCharacter()}
-                        >
+                            disabled={ !dataCharacter.info.next }
+                            onClick={() => nextPageCharacter()}>
                             Next
                         </button>
                     </div>
@@ -66,7 +49,6 @@ export const CardsRickyMorty = () => {
                         <Loader></Loader>
                     ) : (
                         dataCharacter.results
-                            .slice(0, 9)
                             .map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
                     )}
                 </div>
@@ -74,11 +56,11 @@ export const CardsRickyMorty = () => {
 
             <div className='card-flex__items'>
                 <h2>Episodes</h2>
-                {!loadingCharacter && (
+                {!loadingEpisode && (
                     <div className='card-flex__btn'>
-                        <button onClick={() => prevPageEpisode()}>Prev</button>
+                        <button onClick={() => prevPageEpisode()}  disabled={ !dataEpisode.info.prev }>Prev</button>
                         <button
-                            disabled={disabledEpisode}
+                            disabled={!dataEpisode.info.next}
                             onClick={() => nextPageEpisode()}
                         >
                             Next
@@ -90,7 +72,6 @@ export const CardsRickyMorty = () => {
                         <Loader></Loader>
                     ) : (
                         dataEpisode.results
-                            .slice(0, 9)
                             .map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
                     )}
                 </div>

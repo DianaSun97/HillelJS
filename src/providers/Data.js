@@ -13,9 +13,7 @@ export const useFetchCharacter = url => {
             } catch (error) {
                 console.log(error)
             } finally {
-                setTimeout(() => {
-                    setLoading(false)
-                }, 1600)
+               setLoading(false)
             }
         }
         fetchData()
