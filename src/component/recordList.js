@@ -26,9 +26,14 @@ const RecordList = (props) => {
             index: index,
         });
     }
+
+    const saveDone = () => {
+        setEditing(null);
+        reload();
+    }
     return <>{loading ? <p>loading...</p> :
         <>
-            {editing ? <EditRecordForm reload={reload} oldData={editing} /> : <AddRecordForm reload={reload} />}
+            {editing ? <EditRecordForm reload={saveDone} oldData={editing} /> : <AddRecordForm reload={reload} />}
             <div>
                 {data?.data &&
                     data.data.map((record, index) => (<>
