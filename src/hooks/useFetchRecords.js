@@ -5,16 +5,17 @@ const useFetchRecords = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(undefined);
-
-  useEffect(() => {
+  const reload = ()=>{
     setLoading(true);
     axios.get('records/').then((resp) => {
       setData(resp);
       setLoading(false);
     });
-  }, []);
+  }
 
-  return [ data, loading, error ];
+  useEffect(reload, []);
+
+  return [ data, loading, error, reload ];
 };
 
 export default useFetchRecords;

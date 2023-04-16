@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import useFetchRecords from "./useFetchRecords";
 
-const useEditRecords = () => {
+const useEditRecords = (reload) => {
     const [dataSave, setDataSave] = useState(null);
     const [loadingSave, setLoadingSave] = useState(false);
     const [errorSave, setErrorSave] = useState(undefined);
@@ -12,6 +12,7 @@ const useEditRecords = () => {
         axios.put(`records/${id}`, dataSave).then((resp) => {
             setDataSave(resp);
             setLoadingSave(false);
+            reload();
         });
     }
 

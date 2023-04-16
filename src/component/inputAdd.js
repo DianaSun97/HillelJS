@@ -1,8 +1,8 @@
 import useAddRecords from "../hooks/useAddRecords";
 import {useState} from "react";
 
-const AddRecordForm = () => {
-    const [addRecord, data, loading, error] = useAddRecords();
+const AddRecordForm = (props) => {
+    const [addRecord, data, loading, error] = useAddRecords(props.reload);
     const [formValue, setFormValue] = useState({
         "name": `User-${Math.round(100*Math.random())}`,
         "surname": "wild",

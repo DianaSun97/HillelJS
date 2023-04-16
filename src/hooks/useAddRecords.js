@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 
-const useAddRecords = () => {
+const useAddRecords = (reload) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(undefined);
@@ -11,6 +11,7 @@ const useAddRecords = () => {
     axios.post('records/', newUser).then((resp) => {
       setData(resp);
       setLoading(false);
+      reload();
     });
   }
 
