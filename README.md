@@ -23,3 +23,4 @@ Please use branch for every lesson.
 - [Lesson 21](https://github.com/DianaSun97/HillelJS/tree/lesson-21)
 - [Lesson 22](https://github.com/DianaSun97/HillelJS/tree/lesson-22)
 - [Lesson 23](https://github.com/DianaSun97/HillelJS/tree/lesson-23)
+- [Lesson 24](https://github.com/DianaSun97/HillelJS/tree/lesson-24)
