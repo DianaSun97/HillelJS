@@ -1,13 +1,14 @@
 import useDeleteRecords from "../hooks/useDeleteRecords";
-import useEditRecords from "../hooks/useEditRecords";
 import PhoneCard from "./inputPhoneCard";
 import useFetchRecords from "../hooks/useFetchRecords";
 import AddRecordForm from "./inputAdd";
+import {useState} from "react";
+import EditRecordForm from "./inputEdit";
 
 const RecordList = (props) => {
+    const [editing, setEditing] = useState(null);
     const [data, loading, error, reload] = useFetchRecords();
     const [delRecord, deldata, delloading, delerror] = useDeleteRecords(reload)
-    const [editRecord, editdata, editloading, editerror] =  useEditRecords(reload);
 
     if (error) {
         return <h1 style={{ color: "red" }}>We have a problem</h1>;
@@ -19,22 +20,21 @@ const RecordList = (props) => {
         delRecord(index);
     };
 
-    const EditRecordHandler = (index) => {
-        editRecord(index,{
-            "name": "Tests",
-            "surname": "Smirnova",
-            "phone": "+38098736954"
+    const EditRecordHandler = (record, index) => {
+        setEditing({
+            ...record,
+            index: index,
         });
     }
     return <>{loading ? <p>loading...</p> :
         <>
-            <AddRecordForm reload={reload} />
+            {editing ? <EditRecordForm reload={reload} oldData={editing} /> : <AddRecordForm reload={reload} />}
             <div>
                 {data?.data &&
                     data.data.map((record, index) => (<>
                             <PhoneCard key={`phone-card-${index}`}>{record.name} {record.phone}</PhoneCard>
                             <button onClick={() => deleteHandler(index)}>Delete</button>
-                            <button onClick={() =>  EditRecordHandler(index)}>Edit</button>
+                            <button onClick={() =>  EditRecordHandler(record, index)}>Edit</button>
                         </>
                     ))}
             </div>

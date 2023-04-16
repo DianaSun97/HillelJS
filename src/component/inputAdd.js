@@ -40,7 +40,7 @@ const AddRecordForm = (props) => {
         value={surname} />
     <br />
     <input
-        type="number"
+        type="text"
         name="phone"
         placeholder="Your phone"
         onChange={handleEdit}
