@@ -14,7 +14,7 @@ const useAddRecords = () => {
     });
   }
 
-  return { addRecord, data, loading, error };
+  return [ addRecord, data, loading, error ];
 };
 
 export default useAddRecords;

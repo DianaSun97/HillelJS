@@ -1,20 +1,22 @@
 import { useState } from "react";
 import axios from 'axios';
+import useFetchRecords from "./useFetchRecords";
 
 const useEditRecords = () => {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(undefined);
+    const [dataSave, setDataSave] = useState(null);
+    const [loadingSave, setLoadingSave] = useState(false);
+    const [errorSave, setErrorSave] = useState(undefined);
 
-    const editRecord = (userID, editUser) => {
-        setLoading(true);
-        axios.put(`records/${userID}`, editUser).then((resp) => {
-            setData(resp);
-            setLoading(false);
+    const editRecord = (id, dataSave) => {
+        setLoadingSave(true);
+        axios.put(`records/${id}`, dataSave).then((resp) => {
+            setDataSave(resp);
+            setLoadingSave(false);
         });
     }
 
-    return { editRecord, data, loading, error };
+    return [ editRecord, dataSave, loadingSave, errorSave ];
 };
+
 
 export default useEditRecords;

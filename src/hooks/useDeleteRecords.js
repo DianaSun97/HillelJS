@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
+import useFetchRecords from "./useFetchRecords";
+
 
 const useDeleteRecords = () => {
   const [data, setData] = useState(null);
@@ -14,7 +16,7 @@ const useDeleteRecords = () => {
     });
   }
 
-  return { delRecord, data, loading, error };
+  return [ delRecord, data, loading, error ];
 };
 
 export default useDeleteRecords;

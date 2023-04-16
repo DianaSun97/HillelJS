@@ -1,14 +1,14 @@
 
 import "./App.css";
 import AddRecordForm from "./component/inputAdd";
-import PhoneBookRecords from "./component/inputPhone";
+import RecordList from "./component/recordList";
 
 function App() {
   return (
     <div className="App">
       Demo
       <AddRecordForm />
-      <PhoneBookRecords />
+      <RecordList />
     </div>
   );
 }
