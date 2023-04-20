@@ -14,6 +14,7 @@ const AuthProvider = (props) => {
     }, [token]);
 
     const doLogin = async (user) => {
+        console.log("LOGIN B")
         try {
             const token = await axios.post('login', { user });
             localStorage.setItem('token', token.data.token);
