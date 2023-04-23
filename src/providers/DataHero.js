@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-
 export const useFetchCharacter = (id) => {
     const [dataCharacter, setData] = useState({})
     const [loadingCharacter, setLoading] = useState(true)
