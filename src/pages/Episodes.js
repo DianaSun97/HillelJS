@@ -1,30 +1,40 @@
-
-import React, { useState } from 'react'
-import { useFetchEpisode } from '../providers/Episode'
+import { useSelector, useDispatch } from "react-redux";
+import {
+    getEpisodeLisAsync,
+    selectEpisodesList,
+    selectEpisodesListLoad,
+    selectEpisodesListPage
+} from "../storage/slice/rickAndMortyApi";
+import React, {useEffect} from 'react'
 import { Card } from '../components/Card'
 import { Loader } from '../components/Loading'
 export const Episodes = () => {
-    // hooks
-    const [pageEpisode, setPageEpisode] = useState(`episode/?page=1`)
-    const { dataEpisode, loadingEpisode } = useFetchEpisode(`${pageEpisode}`)
+    const dispatch = useDispatch();
+    const list = useSelector(selectEpisodesList);
+    const load = useSelector(selectEpisodesListLoad);
+    const page = useSelector(selectEpisodesListPage);
 
     // Episode pagination
     const prevPageEpisode = () => {
-        setPageEpisode(dataEpisode.info.prev)
+        dispatch(getEpisodeLisAsync(page.prev))
     }
 
     const nextPageEpisode = () => {
-        setPageEpisode(dataEpisode.info.next)
+        dispatch(getEpisodeLisAsync(page.next))
     }
+
+    useEffect(() => {
+        dispatch(getEpisodeLisAsync(`episode/?page=1`))
+    }, [])
 
     return (
         <div className='card-flex__items'>
             <h2>Episodes</h2>
-            {!loadingEpisode && (
+            {!load && (
                 <div className='card-flex__btn'>
-                    <button onClick={() => prevPageEpisode()}  disabled={ !dataEpisode.info.prev }>Prev</button>
+                    <button onClick={() => prevPageEpisode()}  disabled={ !page.prev }>Prev</button>
                     <button
-                        disabled={!dataEpisode.info.next}
+                        disabled={!page.next}
                         onClick={() => nextPageEpisode()}
                     >
                         Next
@@ -32,11 +42,10 @@ export const Episodes = () => {
                 </div>
             )}
             <div className='card-flex'>
-                {loadingEpisode ? (
+                {load ? (
                     <Loader></Loader>
                 ) : (
-                    dataEpisode.results
-                        .map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
+                    list.map(i => <Card id={i.id} name={i.name} status={i.status}></Card>)
                 )}
             </div>
 

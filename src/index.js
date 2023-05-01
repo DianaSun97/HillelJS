@@ -5,6 +5,10 @@ import './style/index.css';
 import App from './App';
 import axios from 'axios';
 
+import { store } from './storage/store';
+import { Provider } from 'react-redux'
+
+
 axios.defaults.baseURL = 'https://rickandmortyapi.com/api/'
 
 axios.interceptors.request.use(async (config) => {
@@ -17,6 +21,8 @@ axios.interceptors.request.use(async (config) => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>
 );

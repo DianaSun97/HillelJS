@@ -1,24 +1,27 @@
 
-import React, { useState } from 'react'
-import { useFetchCharacter } from '../providers/DataHero'
-import { Loader } from '../components/Loading'
+import React, {useEffect} from 'react'
 import {useParams} from "react-router-dom";
+import {
+    getCharacterByIdAsync,
+    selectCharInfo,
+} from "../storage/slice/rickAndMortyApi";
+import { useDispatch, useSelector } from "react-redux";
+
 export const Hero = () => {
+    const dispatch = useDispatch();
     const {id} = useParams();
-    // hooks
-    const { dataCharacter, loadingCharacter } = useFetchCharacter(id);
+    const hero = useSelector(selectCharInfo);
+
+    useEffect(()=>{
+        dispatch(getCharacterByIdAsync(id))
+    }, [id])
+
     return (
         <div className='card-flex__items'>
             <h2>Character</h2>
             <div className='card-flex'>
-                {loadingCharacter ? (
-                    <Loader></Loader>
-                ) : (
-                    <>
-                        <p>{dataCharacter.name}</p>
-                        <img src={dataCharacter.image}/>
-                    </>
-                )}
+                <p>{hero.name}</p>
+                <img src={hero.image}/>
             </div>
         </div>
     )
